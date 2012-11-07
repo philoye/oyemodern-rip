@@ -1,0 +1,91 @@
+// variables only
+@import colors
+@import fonts
+
+// partials that rely on the above variables
+@import normalize
+
+// styles from hp5
+html, button, input, select, textarea
+  color: $black
+
+body
+  font-size: 1em
+  line-height: 1.4
+
+a, a:visited
+  color: $red
+
+::-moz-selection, ::selection
+  background:  $red
+  color: $white
+  text-shadow: none
+
+*
+  box-sizing: border-box
+
+
+.container
+  width: 320px
+  margin: 0 auto
+  padding: 1em 1em 2em 1em
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizelegibility
+
+header
+  background-color: $red
+  padding: 60px 0
+  img
+    display: block
+    margin: 0 auto
+
+section
+  &.body
+    background-color: $beige
+    border-bottom: 1px solid ($beige * .98)
+  &.images
+    background-color: $white
+  &.testimonials
+    background-color: $beige
+    border-bottom: 1px solid ($beige * .98)
+  &.social
+    background-color: $beige
+    border-bottom: 1px solid ($beige * .98)
+
+footer
+  background-color: $gray_dark
+  color: $white
+  a, a:visited
+    color: $white
+
+h1, h2
+  font-size: 1em
+h1
+  margin-bottom: 0
+h2
+  font-weight: normal
+  text-transform: uppercase
+  letter-spacing: 0.1em
+p
+  margin:  0 0 1em 0
+
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+img
+  vertical-align: middle
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+textarea
+  resize: vertical
+
