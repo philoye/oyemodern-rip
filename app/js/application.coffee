@@ -1,3 +1,13 @@
+fisherYates = (arr) ->
+    i = arr.length
+    if i == 0 then return false
+    while --i
+        j = Math.floor(Math.random() * (i+1))
+        tempi = arr[i]
+        tempj = arr[j]
+        arr[i] = tempj
+        arr[j] = tempi
+    return arr
 
 $.fn.deobfuscate = ->
   $(this).each (i, el) ->
@@ -74,7 +84,7 @@ animateProducts =
     Math.floor(Math.random()*(ceiling-floor+1)+floor)
 
   run: ->
-    @$items.each (index, element) =>
+    fisherYates(@$items).each (index, element) =>
       setTimeout =>
         @showImage element
       , @time
