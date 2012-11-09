@@ -13,6 +13,9 @@ $.fn.deobfuscate = ->
 animateProducts =
   time: 50
   photoHeight: 240
+  pageGap:  { top: -160, right: 160, bottom: 0, left: -160 }
+  imageGap: { top: -200, right: 400, bottom: 400, left: -400 }
+  $currentImage: null
 
   init: ->
     @$page = $('page')
@@ -29,33 +32,43 @@ animateProducts =
   showImage: (element) ->
     $li= $(element)
     $img = $li.find('img')
-    $li.css('left', @randomXY().left)
-    $li.css('top',  @randomXY().top)
+    position = @randomXY()
+    $li.css('top',  position.top)
+    $li.css('left', position.left)
     $img.css('opacity',1)
+    @$currentImage = $img
     setTimeout =>
       @hideImage $img
     , 3000
 
-  hideImage: (img) ->
-    img.css('opacity',0)
+  hideImage: ($img) ->
+    $img.css('opacity',0)
+
+  field: ->
+    x1 = 0
+    y1 = 0
+    x2 = $(window).width() - (@photoHeight / 3 * 2)
+    y2 = $(window).height() - (@photoHeight / 3 * 2)
+    return { x1: x1, y1: y1, x2: x2, y2: y2 }
+
+  detectCollision: (x, y, $target, gap) ->
+    return false unless $target
+    objX1 = $target.offset().left + gap.left
+    objY1 = $target.offset().top  + gap.top
+    objX2 = $target.offset().left + $target.width() + gap.right
+    objY2 = $target.offset().top  + $target.height() + gap.bottom
+    collision = ((x > objX1) and (x < objX2) and (y > objY1) and (y < objY2))
+    return collision
 
   randomXY: ->
-    winH = $(window).height()
-    winW = $(window).width()
-    pageX1 = $('.page').offset().left - (@photoHeight / 3)
-    pageY1 = $('.page').offset().top - (@photoHeight / 3)
-    pageX2 = pageX1 + $('.page').width()
-    pageY2 = pageY1 + $('.page').height()
-
     collision = true
     while collision
-      x = @randomBetween(0, winW - (@photoHeight / 3))
-      y = @randomBetween(0, winH - (@photoHeight / 3))
-      if ((x > pageX1) and (x < pageX2) or (y > pageY1) and (y < pageY2))
-        console.log 'collision!'
-      else
-        collision = false
-    return { left: x - (@photoHeight / 3), top: y - (@photoHeight / 3) }
+      x = @randomBetween( @field().x1, @field().x2 )
+      y = @randomBetween( @field().y1, @field().y2 )
+      collidePage = @detectCollision(x, y, $('.page'), @pageGap )
+      collideImage = @detectCollision(x, y, @$currentImage, @imageGap)
+      collision = collidePage or collideImage
+    return { left: x, top: y }
 
   randomBetween: (floor, ceiling) ->
     Math.floor(Math.random()*(ceiling-floor+1)+floor)
