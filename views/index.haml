@@ -5,46 +5,47 @@
 -# <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 -# <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
-%html.no-js{:lang => "en"}
+%html.no-js.init{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}
     %meta{:'http-equiv' =>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}
-    %title= "Oye Modern is closed"
+    %title= "Oye Modern has closed. Sorry."
     %meta{:name => "description", :content => ""}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     / Place favicon.ico and apple-touch-icon.png in the root directory
     != js  :modernizr
     != css :application
+    :coffeescript
+      resize = undefined
+      window.onload = ->
+        setTimeout (->
+          document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ")
+        ), 500
 
   %body
-    %header
-      !=img '/images/logo.svg', { :width=> 200, :height => 80, :'data-svg-fallback' => asset_path('/images/logo.png')}
+    .spacer
+    .page
+      %header
+        %img{  :src => asset_path('/images/logo.svg'), :'data-svg-fallback' => asset_path('/images/logo.png')}
 
-    %section.body
-      .container
-        %h1 Oye Modern has <strong>closed</strong>.
-        %p After five years, we have decided to close our store. It has been a wonderful ride, but all great things must come to an end.
+      %section.greeting
+        .inner
+          %h1 Oye Modern has <strong>closed</strong>.
+          %p After five years, we have decided to close up shop. We’ve had fun, learned a lot, but it’s time to the turn the page.
+          %p We don’t know what’s next, but when we do, find out by following us on <a href="http://facebook.com/oyemodern">Facebook</a> and <a href="http://twitter.com/oyemodern">Twitter</a>.
 
     %section.products
-      .container
-        %p A few of our favourite items that you may have missed.
-        %ul
-          %li image
-          %li image
-          %li image
-          %li image
-          %li image
-          %li image
-
-    %section.social
-      .container
-        %p We don’t know what is next, but to find out, sign up the mailing list, or follow us on <a href="http://facebook.com/oyemodern">Facebook</a> or <a href="http://twitter.com/oyemodern">Twitter</a>.
-
-    %footer
-      .container
-        %h1 Want to talk to us?
-        %p Just to reiterate, the store is closed, so we can’t help with sourcing the items we carried.
-        %p If would still like to contact us, perhaps to send us some good vibes? Then you can do so by emailing us at <span class="email" data-email="#{@email}">“service” care of this domain.</a>.
+      %p A few of our favourite items that you may have missed…
+      %ul.imagegrid
+        = partial :lazyimage, :locals => { :filename => 'acor-r-surface-g-2.jpg', :title => 'I am a title', :id => 'photo_acor' }
+        = partial :lazyimage, :locals => { :filename => 'BKEN-R-Circle-R-8.jpg', :title => 'I am a title' }
+        = partial :lazyimage, :locals => { :filename => 'cync-n-zip-group-8.jpg', :title => 'I am a title' }
+        = partial :lazyimage, :locals => { :filename => 'dcsr-r-turntable-11.jpg', :title => 'I am a title' }
+        = partial :lazyimage, :locals => { :filename => 'elik-prism-r-ox-2.jpg', :title => 'I am a title' }
+        = partial :lazyimage, :locals => { :filename => 'fink-e-prop-r-1.jpg', :title => 'I am a title' }
+        = partial :lazyimage, :locals => { :filename => 'frut-r-gem-p-4.jpg', :title => 'I am a title' }
+        = partial :lazyimage, :locals => { :filename => 'gpli-mc-deconstructed-numbers-6.jpg', :title => 'I am a title' }
+        = partial :lazyimage, :locals => { :filename => 'joye-b-bike-029-f-k-6.jpg', :title => 'I am a title' }
 
 
     != js :application

@@ -9,6 +9,19 @@ $.fn.deobfuscate = ->
     el.innerHTML = link
   return this
 
-$('.email').deobfuscate()
+animateProducts =
+  init: ->
+    @$page = $('page')
+    @$items = $('ul.imagegrid li')
+    @findZones()
 
 
+  findZones: ->
+    offset = @$page.offset()
+    spaceAbove = offset.top > 160
+    spaceLeft = offset.left > 160
+
+
+$ ->
+  $('.email').deobfuscate()
+  animateProducts.init()

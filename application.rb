@@ -19,9 +19,12 @@ class App < Sinatra::Base
   register Sinatra::CompassSupport
   register Sinatra::AssetPack
 
-  #(
-   #Dir['./lib/*.rb'].sort
-  #).uniq.each { |rb| require rb }
+  register Sinatra::Partial
+  enable :partial_underscores
+
+  (
+   Dir['./lib/*.rb'].sort
+  ).uniq.each { |rb| require rb }
 
   configure :development do |config|
     require "sinatra/reloader"
@@ -51,12 +54,8 @@ class App < Sinatra::Base
     haml :index
   end
 
-  #get '/*' do
-    #redirect '/', 301
-  #end
-
-  get "/favicon.ico" do
-    ""
+  get '/*' do
+    redirect '/', 301
   end
 
 end

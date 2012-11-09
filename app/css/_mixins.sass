@@ -1,0 +1,26 @@
+@function pxtoem($target-px, $context)
+  @return ($target-px / $context) * 1em
+
+@mixin respond-to($media)
+  @if $media == 'phonenarrow'
+    @media only screen and (max-width: 320px)
+      @content
+
+  @else if $media == 'phonewide'
+    @media only screen and (max-width: 480px)
+      @content
+
+  @else if $media == 'tabletnarrow'
+    @media only screen and (max-width: 768px)
+      @content
+
+  @else if $media == 'tabletwide'
+    @media only screen and (max-width: 960px)
+      @content
+
+  @else if $media == wide
+    @media only screen and (min-width: 961px)
+      @content
+
+
+
