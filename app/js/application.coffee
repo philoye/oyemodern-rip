@@ -68,7 +68,7 @@ animateProducts =
       @time += 4000
 
 $ ->
-  $('.email').deobfuscate()
+  #$('.email').deobfuscate()
 
 $(window).load ->
   animateProducts.init()
