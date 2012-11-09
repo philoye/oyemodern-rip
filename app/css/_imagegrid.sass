@@ -49,4 +49,9 @@ ul.imagegrid
         max-width: 100%
         opacity: 0
 
+ul.imagegrid img
+  @include transition-property(opacity)
+  @include transition-duration(0.3s)
+  @include transition-timing-function(linear)
+  @include transition-delay(2s)
 
