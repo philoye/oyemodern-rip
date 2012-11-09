@@ -33,7 +33,7 @@ ul.imagegrid
 @media only screen and (min-width: 768px)
   ul.imagegrid
     padding: 0
-    li
+    > li
       float: none
       width: auto
       height: auto
@@ -45,46 +45,8 @@ ul.imagegrid
           float: none
           top: 0
       img
-        width: 50%
+        width: pxtoem(240px, 16px)
         max-width: 100%
         opacity: 0
-      &:nth-child(1)
-        top: 10%
-        left: 0
-      &:nth-child(2)
-        top: 10%
-        left: 25%
-      &:nth-child(3)
-        top: 10%
-        left: 50%
-      &:nth-child(4)
-        top: 10%
-        left: 75%
-
-      &:nth-child(5)
-        top: 33%
-        left: 0
-      &:nth-child(6)
-        top: 0px
-        left: 25%
-      &:nth-child(7)
-        top: 0px
-        left: 50%
-      &:nth-child(8)
-        top: 0px
-        left: 75%
-
-      &:nth-child(9)
-        top: 0px
-        left: -80px
-      &:nth-child(10)
-        top: 0px
-        left: 25%
-      &:nth-child(11)
-        top: 0px
-        left: 50%
-      &:nth-child(12)
-        top: 0px
-        left: 75%
 
 

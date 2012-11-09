@@ -49,15 +49,12 @@ footer
         margin-left: 0
         border-left: 0
 
-@media only screen and (max-width: 767px)
-
-
 @media only screen and (min-width: 768px)
 
   .spacer
     float: left
     height: 50%
-    margin-bottom: (pxtoem(320px, 16px) * -0.5) - 2em
+    margin-bottom: (pxtoem(280px, 16px) * -0.5)
 
   .page
     @include transition-property(opacity)
@@ -99,8 +96,6 @@ footer
   section.greeting
     border-bottom: 0
     margin-left: 50%
-    .inner
-      max-width: 20em
 
   footer
     margin-top: 7em
@@ -113,8 +108,6 @@ footer
   .products
     p
       display: none
-
-
 
 @media only screen and (min-width: 961px)
 
@@ -131,39 +124,4 @@ footer
   section.greeting
     margin-left: pxtoem(320px, 16px)
     border-right: 1px solid darken($beige, 5%)
-
-
-
-
-  //.page
-    //height: pxtoem(320px, 16px)
-    //width: pxtoem(960px, 16px)
-  //header, section.greeting, section.image
-    //width:  pxtoem(320px, 16px)
-    //height: pxtoem(320px, 16px)
-
-  //.spacer
-    //margin-bottom: (pxtoem(320px, 16px) * -0.5) - 3em
-  //.page
-    //width: 70%
-  //header, section.greeting, section.image
-    //width: 33%
-  //header
-    //height: 100%
-
-  //+respond-to('tabletnarrow')
-    //.page
-      //width: pxtoem(480px, 16px)
-      //height: pxtoem(480px, 16px)
-    //.spacer
-      //margin-bottom: (pxtoem(480px, 16px) * -0.5)
-  //+respond-to('tabletwide')
-    //.page
-      //width: pxtoem(640px, 16px)
-      //height: pxtoem(640px, 16px)
-    //.spacer
-      //margin-bottom: (pxtoem(640px, 16px) * -0.5) - 5em
-
-
-
 
