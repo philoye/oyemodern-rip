@@ -18,7 +18,7 @@ animateProducts =
     @$page = $('page')
     @$items = $('ul.imagegrid li')
     @findZones()
-    @run() for [1..5]
+    @run() for [1..20]
 
   findZones: ->
     $page = $('.page')
