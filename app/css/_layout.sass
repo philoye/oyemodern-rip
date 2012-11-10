@@ -17,13 +17,15 @@ body
 
 header
   background-color: $red
-  img
-    position: relative
-    display: block
-    width: pxtoem(160px, 16px)
-    margin: 0 auto
-    padding: 2em
-    box-sizing: content-box
+  background-image: url('/images/logo.svg')
+  background-size: pxtoem(200px, 16px)
+  background-repeat: no-repeat
+  background-position: center
+  text-indent: -10000em
+  height: pxtoem(180px, 16px)
+  padding: 2em
+.no-svg header
+  background-image: url('/images/logo.gif')
 
 section.greeting
   padding: 2em 2em 1em 2em
@@ -79,15 +81,12 @@ footer
 
   header
     width: 50%
+    height: auto
     top: 0
     right: 50%
     bottom: 0
     left: 0
     position: absolute
-    background-image: url('/images/logo.svg')
-    background-size: pxtoem(200px, 16px)
-    background-repeat: no-repeat
-    background-position: center
     +border-top-left-radius(5px)
     +border-bottom-left-radius(5px)
     img
