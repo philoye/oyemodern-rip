@@ -1,5 +1,5 @@
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-backgroundsize-borderradius-boxshadow-opacity-cssanimations-cssgradients-csstransforms-csstransforms3d-csstransitions-shiv-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
+ * Build: http://modernizr.com/download/#-boxshadow-opacity-csstransitions-svg-shiv-cssclasses-testprop-testallprops-prefixes-domprefixes
  */
 ;
 
@@ -34,6 +34,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     domPrefixes = omPrefixes.toLowerCase().split(' '),
 
+    ns = {'svg': 'http://www.w3.org/2000/svg'},
 
     tests = {},
     inputs = {},
@@ -46,44 +47,7 @@ window.Modernizr = (function( window, document, undefined ) {
     featureName,
 
 
-    injectElementWithStyles = function( rule, callback, nodes, testnames ) {
 
-      var style, ret, node, docOverflow,
-          div = document.createElement('div'),
-                body = document.body,
-                fakeBody = body || document.createElement('body');
-
-      if ( parseInt(nodes, 10) ) {
-                      while ( nodes-- ) {
-              node = document.createElement('div');
-              node.id = testnames ? testnames[nodes] : mod + (nodes + 1);
-              div.appendChild(node);
-          }
-      }
-
-                style = ['&#173;','<style id="s', mod, '">', rule, '</style>'].join('');
-      div.id = mod;
-          (body ? div : fakeBody).innerHTML += style;
-      fakeBody.appendChild(div);
-      if ( !body ) {
-                fakeBody.style.background = '';
-                fakeBody.style.overflow = 'hidden';
-          docOverflow = docElement.style.overflow;
-          docElement.style.overflow = 'hidden';
-          docElement.appendChild(fakeBody);
-      }
-
-      ret = callback(div, rule);
-        if ( !body ) {
-          fakeBody.parentNode.removeChild(fakeBody);
-          docElement.style.overflow = docOverflow;
-      } else {
-          div.parentNode.removeChild(div);
-      }
-
-      return !!ret;
-
-    },
     _hasOwnProperty = ({}).hasOwnProperty, hasOwnProp;
 
     if ( !is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined') ) {
@@ -195,13 +159,7 @@ window.Modernizr = (function( window, document, undefined ) {
           props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
           return testDOMProps(props, prefixed, elem);
         }
-    }    tests['backgroundsize'] = function() {
-        return testPropsAll('backgroundSize');
-    };    tests['borderradius'] = function() {
-        return testPropsAll('borderRadius');
-    };
-
-    tests['boxshadow'] = function() {
+    }    tests['boxshadow'] = function() {
         return testPropsAll('boxShadow');
     };
 
@@ -211,47 +169,15 @@ window.Modernizr = (function( window, document, undefined ) {
                 setCssAll('opacity:.55');
 
                     return (/^0.55$/).test(mStyle.opacity);
-    };
-
-
-    tests['cssanimations'] = function() {
-        return testPropsAll('animationName');
-    };    tests['cssgradients'] = function() {
-        var str1 = 'background-image:',
-            str2 = 'gradient(linear,left top,right bottom,from(#9f9),to(white));',
-            str3 = 'linear-gradient(left top,#9f9, white);';
-
-        setCss(
-                       (str1 + '-webkit- '.split(' ').join(str2 + str1) +
-                       prefixes.join(str3 + str1)).slice(0, -str1.length)
-        );
-
-        return contains(mStyle.backgroundImage, 'gradient');
-    };    tests['csstransforms'] = function() {
-        return !!testPropsAll('transform');
-    };
-
-
-    tests['csstransforms3d'] = function() {
-
-        var ret = !!testPropsAll('perspective');
-
-                        if ( ret && 'webkitPerspective' in docElement.style ) {
-
-                      injectElementWithStyles('@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}', function( node, rule ) {
-            ret = node.offsetLeft === 9 && node.offsetHeight === 3;
-          });
-        }
-        return ret;
-    };
-
-
-    tests['csstransitions'] = function() {
+    };    tests['csstransitions'] = function() {
         return testPropsAll('transition');
     };
 
 
 
+    tests['svg'] = function() {
+        return !!document.createElementNS && !!document.createElementNS(ns.svg, 'svg').createSVGRect;
+    };
     for ( var feature in tests ) {
         if ( hasOwnProp(tests, feature) ) {
                                     featureName  = feature.toLowerCase();
@@ -475,8 +401,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     Modernizr.testAllProps  = testPropsAll;
 
-
-    Modernizr.testStyles    = injectElementWithStyles;    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
+    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
                                                     (enableClasses ? ' js ' + classes.join(' ') : '');
 
