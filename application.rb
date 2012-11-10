@@ -41,7 +41,6 @@ class App < Sinatra::Base
     ]
     js :application, [
       '/js/vendor/jquery.js',
-      '/js/vendor/underscore.js',
       '/js/application.js'
     ]
     css :application, [
