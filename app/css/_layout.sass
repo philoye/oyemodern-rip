@@ -59,9 +59,10 @@ footer
     margin-bottom: (pxtoem(280px, 16px) * -0.5)
 
   .page
-    @include transition-property(opacity)
-    @include transition-duration(0.1s)
-    @include transition-timing-function(linear)
+    @include transition-property(opacity, top)
+    @include transition-duration(0.2s, 0.1s)
+    @include transition-timing-function(linear, linear)
+    top: 0
     clear: both
     position: relative
     overflow: hidden
@@ -75,7 +76,7 @@ footer
     border: 1px solid darken($beige, 5%)
   .init .page
     opacity: 0
-    top: 0.5em
+    top: 3em
 
 
   header, section.greeting
