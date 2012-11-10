@@ -21,7 +21,7 @@ $.fn.deobfuscate = ->
   return this
 
 animateProducts =
-  time: 50
+  time: 2000
   photoHeight: 240
   pageGap:  { top: -160, right: 160, bottom: 0, left: -160 }
   imageGap: { top: -200, right: 400, bottom: 400, left: -400 }
@@ -88,7 +88,7 @@ animateProducts =
       setTimeout =>
         @showImage element
       , @time
-      @time += 4000
+      @time += 2000
 
 $ ->
   #$('.email').deobfuscate()
