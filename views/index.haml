@@ -9,14 +9,13 @@
   %head
     %meta{:charset => "utf-8"}
     %meta{:'http-equiv' =>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}
-    %title= "Oye Modern has closed. Sorry."
+    %title= "Oye Modern has closed."
     %meta{:name => "description", :content => ""}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
 
     != js  :modernizr
     != css :application
     :coffeescript
-      resize = undefined
       window.onload = ->
         setTimeout (->
           document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ")
