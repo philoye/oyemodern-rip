@@ -45,14 +45,14 @@ animateProducts =
     position = @randomXY()
     $li.css('top',  position.top)
     $li.css('left', position.left)
-    $img.css('opacity',1)
+    $img.fadeTo(300, 1)
     @$currentImage = $img
     setTimeout =>
       @hideImage $img
     , 3000
 
   hideImage: ($img) ->
-    $img.css('opacity',0)
+    $img.fadeTo(300, 0)
 
   field: ->
     x1 = 0
