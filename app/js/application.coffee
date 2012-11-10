@@ -57,8 +57,8 @@ animateProducts =
   field: ->
     x1 = 0
     y1 = 0
-    x2 = $(window).width() - (@photoHeight / 3 * 2)
-    y2 = $(window).height() - (@photoHeight / 3 * 2)
+    x2 = $(window).width() - (@photoHeight)
+    y2 = $(window).height() - (@photoHeight)
     return { x1: x1, y1: y1, x2: x2, y2: y2 }
 
   detectCollision: (x, y, $target, gap) ->
