@@ -94,4 +94,5 @@ $ ->
   #$('.email').deobfuscate()
 
 $(window).load ->
-  animateProducts.init()
+  if $(window).width() >= 768
+    animateProducts.init()
