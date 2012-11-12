@@ -101,5 +101,5 @@ animateProducts =
 
 
 $(window).load ->
-  if $(window).width() >= 768
+  if $(window).width() >= 600
     animateProducts.init()
