@@ -2,32 +2,23 @@
   p
     padding: 2em 2em 0 2em
 
-.js section.products
-  .init li
-    opacity: 0
-  li
-    opacity: 1
+//.js section.products
+  //.init li
+    //opacity: 0
+  //li
+    //opacity: 1
 
 ul.imagegrid
-  overflow: hidden
-  margin: 0
-  padding: 0
-  padding-bottom: pxtoem(80px, 16px)
-  > li
-    +float-left
-    margin: 0
-    padding: 0
-    line-height: 0
-    width:  50%
-    height: 50%
+  +inline-list
+  li
+    img
+      display: inline
+      width: 45%
+      max-width: 100%
     &:nth-child(even)
       img
-        float: right
-        position: relative
-        top: pxtoem(80px, 16px)
-    img
-      display: inline-block
-      width: 100%
+        //position: relative
+        //top: pxtoem(80px, 16px)
 
 
 @media only screen and (min-width: 600px)

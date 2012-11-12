@@ -99,18 +99,15 @@ animateProducts =
         @index = (@index + 1) % imageArray.length
     , 2000
 
-$ ->
 
-  $("ul.imagegrid img").bind "scrollin", ->
+$(window).load ->
+  $("ul.imagegrid img").each ->
     $img = $(@)
     $img
-      .unbind("scrollin")
       .css('opacity', 0)
       .attr('src', $img.attr( "data-src" ))
       .removeAttr('data-src')
-      .fadeTo(1000, 1)
+      .fadeTo(500, 1)
 
-
-$(window).load ->
   if $(window).width() >= 600
     animateProducts.init()
