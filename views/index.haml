@@ -16,6 +16,7 @@
     != css :application
     != js  :jsforhead
     :coffeescript
+      window.imageArray = []
       window.onload = ->
         setTimeout (->
           document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ")

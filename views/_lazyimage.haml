@@ -1,12 +1,6 @@
 %li
-  -#- size = 160 unless size
-  -#- path = asset_path("/images/#{filename}")
-  -#%img.lazy{ :src => path, :title => 'title', :width => size, :height => size }
-  -#%noscript
-    -#%img{ :src => path, :title => 'title', :width => size, :height => size }
   - path = asset_path("/images/#{filename}")
-  %img.lazy{ :src => path, :title => 'title' }
-  %noscript
-    %img{ :src => path, :title => 'title' }
-
+  %img{ :src => path, :title => title }
+  :coffeescript
+    imageArray.push "#{path}"
 
