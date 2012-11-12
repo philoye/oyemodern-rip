@@ -18,66 +18,57 @@ body
 header
   background-color: $red
   background-image: url('/images/logo.svg')
-  background-size: pxtoem(200px, 16px)
   background-repeat: no-repeat
   background-position: center
   text-indent: -10000em
   height: pxtoem(180px, 16px)
-  padding: 2em
+  padding: 0
 .no-svg header
   background-image: url('/images/logo.gif')
 
 section.greeting
-  padding: 2em 2em 1em 2em
   border-bottom: 1px solid darken($beige, 5%)
+  .inner
+    padding: 2em 2em 1em 2em
 
-footer
-  font-size: .9em
-  background-color: $gray_dark
-  color: #999
-  padding: 1em 2em 1em 2em
+section.image
+  display: none
 
-  a, a:visited
-    color: $white
-  ul
-    +inline-block-list-container
-    > li
-      +inline-block-list-item
-      padding-left: 1em
-      border-left: 1px solid #999
-      margin-left: 1em
-      &:first-child
-        padding-left: 0
-        margin-left: 0
-        border-left: 0
 
-@media only screen and (min-width: 768px)
+@media only screen and (max-width: 320px)
+
+  header
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: pxtoem(150px, 16px)
+    z-index: -1
+  section.greeting
+    margin-top: pxtoem(150px, 16px)
+    position: relative
+    z-index: 100
+    +box-shadow(#888 0px 0px 5px)
+  .products
+    background-color: white
+
+
+@media only screen and (min-width: 321px)
+
+
+
+// base styles for floating page
+@media only screen and (min-width: 600px)
 
   .spacer
     float: left
-    height: 50%
-    margin-bottom: (pxtoem(280px, 16px) * -0.5)
 
   .page
-    @include transition-property(opacity, top)
-    @include transition-duration(0.2s, 0.1s)
-    @include transition-timing-function(linear, linear)
-    top: 0
     clear: both
     position: relative
     overflow: hidden
-    +border-radius(5px)
     z-index: 10
-    margin: 0 auto
-    width: pxtoem(600px, 16px)
     background-color: $beige
-    +box-shadow(#888 0px 0px 5px)
-  .no-boxshadow .page
-    border: 1px solid darken($beige, 5%)
-  .init .page
-    opacity: 0
-    top: 3em
-
 
   header, section.greeting
     float: left
@@ -86,12 +77,10 @@ footer
     width: 50%
     height: auto
     top: 0
-    right: 50%
+    right: pxtoem(240px, 16px)
     bottom: 0
     left: 0
     position: absolute
-    +border-top-left-radius(5px)
-    +border-bottom-left-radius(5px)
     img
       display: none
 
@@ -99,31 +88,70 @@ footer
     border-bottom: 0
     margin-left: 50%
 
-  footer
-    margin-top: 7em
-    background-color: transparent
-    text-align: center
-    width: 100%
-    color: #888
-    a, a:visited
-      color: $red
   .products
-    p
-      display: none
+    display: none
+
+@media only screen and (min-width: 601px)
+
+  .spacer
+    height: 50%
+    margin-bottom: (pxtoem(400px, 16px) * -0.5)
+
+  .page
+    @include transition-property(opacity, top)
+    @include transition-duration(0.2s, 0.1s)
+    @include transition-timing-function(linear, linear)
+    top: 0
+    +border-radius(5px)
+    border-bottom: 0
+    margin: 0 auto
+    width: pxtoem(480px, 16px)
+    +box-shadow(#888 0px 0px 5px)
+
+  header
+    +border-top-left-radius(5px)
+    +border-bottom-left-radius(5px)
+
+  .products
+    display: none
+
+
+@media only screen and (min-width: 768px)
+
+
+  .spacer
+    margin-bottom: (pxtoem(280px, 16px) * -0.5)
+
+  .page
+    width: pxtoem(640px, 16px)
+
+  header
+    right: pxtoem(320px, 16px)
+
 
 @media only screen and (min-width: 961px)
 
   .page
     width: pxtoem(960px, 16px)
-    background-image: url('/images/lottie.jpg')
-    background-size: pxtoem(320px, 16px) auto
-    background-repeat: no-repeat
-    background-position: bottom right
+
   header, section.greeting, section.image
     width: pxtoem(320px, 16px)
+
   header
     right: pxtoem(320px, 16px)
+
+  section.image
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: pxtoem(640px, 16px)
+    img
+      border-left: 1px solid darken($beige, 5%)
+      width: 100%
+      -ms-interpolation-mode:bicubic
+
   section.greeting
     margin-left: pxtoem(320px, 16px)
-    border-right: 1px solid darken($beige, 5%)
 

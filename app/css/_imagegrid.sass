@@ -30,7 +30,7 @@ ul.imagegrid
       width: 100%
 
 
-@media only screen and (min-width: 768px)
+@media only screen and (min-width: 600px)
   ul.imagegrid
     padding: 0
     > li
@@ -49,9 +49,11 @@ ul.imagegrid
         max-width: 100%
         opacity: 0
 
-//ul.imagegrid img
-  //@include transition-property(opacity)
-  //@include transition-duration(0.3s)
-  //@include transition-timing-function(linear)
-  //@include transition-delay(2s)
+  body img.animated_image
+    position: absolute
+    width: pxtoem(240px, 16px)
+    height: pxtoem(240px, 16px)
+    max-width: 100%
+    opacity: 0
+
 
