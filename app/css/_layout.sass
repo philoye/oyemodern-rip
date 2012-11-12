@@ -1,8 +1,8 @@
-*
-  box-sizing: border-box
+//*
+  //box-sizing: border-box
 
 html, body
-  height: 100%
+  //height: 100%
 
 body
   -webkit-text-size-adjust: 100%
@@ -37,19 +37,28 @@ section.image
 
 @media only screen and (max-width: 320px)
 
+  .page
+    position: relative
+    background-color: transparent
+    z-index: 2
+
   header
     position: fixed
     top: 0
     left: 0
     right: 0
-    bottom: pxtoem(150px, 16px)
+    height: pxtoem(150px, 16px)
     z-index: -1
   section.greeting
-    margin-top: pxtoem(150px, 16px)
+    padding-top: pxtoem(150px, 16px)
     position: relative
-    z-index: 100
-    +box-shadow(#888 0px 0px 5px)
+    .inner
+      +box-shadow(#888 0px 0px 5px)
+      background-color: $beige
+      border-top: 1px solid darken($beige, 5%)
   .products
+    position: relative
+    z-index: 3
     background-color: white
 
 
@@ -59,6 +68,9 @@ section.image
 
 // base styles for floating page
 @media only screen and (min-width: 600px)
+
+  html,body
+    height: 100%
 
   .spacer
     float: left
@@ -91,22 +103,26 @@ section.image
   .products
     display: none
 
-@media only screen and (min-width: 601px)
+@media only screen and (min-width: 600px)
 
   .spacer
     height: 50%
+    width: 100%
     margin-bottom: (pxtoem(400px, 16px) * -0.5)
+    overflow: hidden
 
   .page
     @include transition-property(opacity, top)
     @include transition-duration(0.2s, 0.1s)
     @include transition-timing-function(linear, linear)
     top: 0
-    +border-radius(5px)
     border-bottom: 0
     margin: 0 auto
     width: pxtoem(480px, 16px)
-    +box-shadow(#888 0px 0px 5px)
+    +border-radius(5px)
+    +box-shadow(#888 0px 0px 7px)
+  .no-boxshadow
+    border: 5px solid darken($beige, 4%)
 
   header
     +border-top-left-radius(5px)
