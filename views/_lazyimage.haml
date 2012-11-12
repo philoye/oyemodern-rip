@@ -1,6 +1,6 @@
 %li
   - path = img_asset_path("/images/#{filename}")
-  %img{ :src => path }
+  %img{ :'data-src' => path }
   :coffeescript
     imageArray.push "#{path}"
 
