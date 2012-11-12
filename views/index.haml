@@ -13,8 +13,8 @@
     %meta{:name => "description", :content => ""}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
 
-    != js  :modernizr
     != css :application
+    != js  :jsforhead
     :coffeescript
       window.onload = ->
         setTimeout (->

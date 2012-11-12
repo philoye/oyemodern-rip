@@ -36,11 +36,14 @@ class App < Sinatra::Base
     serve '/js',     from: 'app/js'
     serve '/css',    from: 'app/css'
 
-    js :modernizr, [
-      '/js/vendor/modernizr.js'
+    js :'jsforhead', [
+      '/js/vendor/modernizr.js',
+      '/js/vendor/respond.js'
     ]
     js :application, [
       '/js/vendor/jquery.js',
+      '/js/vendor/underscore.js',
+      '/js/vendor/console.js',
       '/js/application.js'
     ]
     css :application, [
