@@ -1,14 +1,3 @@
-fisherYates = (arr) ->
-  i = arr.length
-  if i == 0 then return false
-  while --i
-      j = Math.floor(Math.random() * (i+1))
-      tempi = arr[i]
-      tempj = arr[j]
-      arr[i] = tempj
-      arr[j] = tempi
-  return arr
-
 $.fn.deobfuscate = ->
   $(this).each (i, el) ->
     user = $(this).attr('data-email').replace(/[a-zA-Z]/g, (c) ->
@@ -29,6 +18,17 @@ animateProducts =
 
   init: ->
     @run()
+
+  fisherYates: (arr) ->
+    i = arr.length
+    if i == 0 then return false
+    while --i
+        j = Math.floor(Math.random() * (i+1))
+        tempi = arr[i]
+        tempj = arr[j]
+        arr[i] = tempj
+        arr[j] = tempi
+    return arr
 
   roomToAnimate: ->
     @$page = $('.page')
@@ -103,7 +103,7 @@ animateProducts =
 
   index: 0
   run: ->
-    imageArray = fisherYates(window.imageArray)
+    imageArray = @fisherYates(window.imageArray)
     setInterval =>
       if @roomToAnimate()
         @showImage(imageArray[@index])
