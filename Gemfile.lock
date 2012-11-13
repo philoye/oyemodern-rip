@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/philoye/sinatra-assetpack.git
-  revision: fff9c21663dae944d7019a8b3472b928ae50de3c
+  revision: 9febca87dcbcf41f097c26a29af151b8abaa88ba
   branch: my_master
   specs:
     sinatra-assetpack (0.0.12.pre1)
