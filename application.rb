@@ -43,6 +43,7 @@ class App < Sinatra::Base
     css :application, [
       '/css/*.css'
     ]
+    expires 86400*365, :public
   }
 
   get '/' do
