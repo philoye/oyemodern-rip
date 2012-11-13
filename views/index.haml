@@ -15,12 +15,13 @@
 
     != css :application
     != js  :jsforhead
-    :coffeescript
-      window.imageArray = []
-      window.onload = ->
-        setTimeout (->
-          document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ")
-        ), 500
+    :javascript
+      window.imageArray = [];
+      window.onload = function() {
+        return setTimeout((function() {
+          return document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ");
+        }), 500);
+      };
 
   %body
     .spacer
