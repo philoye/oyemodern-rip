@@ -22,10 +22,6 @@ class App < Sinatra::Base
   register Sinatra::Partial
   enable :partial_underscores
 
-  (
-   Dir['./lib/*.rb'].sort
-  ).uniq.each { |rb| require rb }
-
   configure :development do |config|
     require "sinatra/reloader"
     register Sinatra::Reloader
