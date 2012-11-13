@@ -15,6 +15,5 @@ gem 'sinatra-assetpack', :require => 'sinatra/assetpack', :git => 'git://github.
 gem 'haml', '~> 3.2.beta'
 gem 'sass'
 gem 'compass'
-gem 'rake'
 gem 'coffee-script'
 
