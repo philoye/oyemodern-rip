@@ -52,7 +52,6 @@ class App < Sinatra::Base
   }
 
   get '/' do
-    @email = "service".tr! "A-Za-z", "N-ZA-Mn-za-m"
     haml :index
   end
 
