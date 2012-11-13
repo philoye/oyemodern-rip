@@ -5,6 +5,9 @@ gem 'foreman'
 gem 'unicorn'
 gem 'sinatra', :require => 'sinatra/base'
 
+gem 'dalli'
+gem 'rack-cache'
+
 gem 'sinatra-contrib',   :require => 'sinatra/contrib/all'
 gem 'sinatra-support',   :require => 'sinatra/support'
 gem 'sinatra-partial',   :require => 'sinatra/partial'
@@ -13,7 +16,7 @@ gem 'sinatra-assetpack', :require => 'sinatra/assetpack', :git => 'git://github.
 #gem 'sinatra-assetpack', :require => 'sinatra/assetpack', :path => '/Users/philoye/code/sinatra-assetpack', :branch => 'my_master'
 
 gem 'haml', '~> 3.2.beta'
-gem 'sass'
+gem 'sass'
 gem 'compass'
 gem 'coffee-script'
 

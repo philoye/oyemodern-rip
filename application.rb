@@ -47,10 +47,7 @@ class App < Sinatra::Base
 
   get '/' do
     cache_control :public, :must_revalidate, :max_age => 3600
-    last_modified Date.today
-    body = haml :index
-    etag Digest::MD5.hexdigest(body)
-    body
+    haml :index
   end
 
   get '/*' do
