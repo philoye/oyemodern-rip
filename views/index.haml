@@ -40,20 +40,27 @@
     %section.products
       %p A few of our favourite items that you may have missed…
       %ul.imagegrid
-        = partial :lazyimage, :locals => { :filename => 'acor-r-surface-g-2.jpg' }
-        = partial :lazyimage, :locals => { :filename => 'BKEN-R-Circle-R-8.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'acor-e-caviar-2.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'acor-r-surface-2.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'bamt-r-dr-group-31.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'dcsr-r-headphones-10.jpg' }
         = partial :lazyimage, :locals => { :filename => 'dcsr-r-turntable-11.jpg' }
-        = partial :lazyimage, :locals => { :filename => 'elik-prism-r-ox-2.jpg' }
-        = partial :lazyimage, :locals => { :filename => 'fink-e-prop-r-1.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'fink-e-fold-r-1.jpg' }
         = partial :lazyimage, :locals => { :filename => 'frut-r-gem-p-4.jpg' }
-        = partial :lazyimage, :locals => { :filename => 'gpli-mc-deconstructed-numbers-6.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'joye-b-bike-014-f-k-5.jpg' }
         = partial :lazyimage, :locals => { :filename => 'joye-b-bike-029-f-k-6.jpg' }
-
+        = partial :lazyimage, :locals => { :filename => 'joye-e-wire-curve-s-30.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'rsvn-b-264fb-3.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'rsvn-b-288fb-1.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'rsvn-b-aperture-s-8.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'tlil-r-crayon-19.jpg' }
+        = partial :lazyimage, :locals => { :filename => 'yoon-r-innermessage-love-3.jpg' }
 
     != js :application
-    :javascript
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
+    - if ENV['oyemodern_ga']
+      :javascript
+        var _gaq=[['_setAccount',"#{ENV['oyemodern_ga']}"],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
 
