@@ -15,10 +15,8 @@ class App < Sinatra::Base
   set      :sass, { :load_paths => [ "#{App.root}/app/css" ] }
   set      :haml, :format => :html5
 
-  helpers  Sinatra::ContentFor
   register Sinatra::CompassSupport
   register Sinatra::AssetPack
-
   register Sinatra::Partial
   enable :partial_underscores
 
