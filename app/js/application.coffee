@@ -94,7 +94,7 @@ animateProducts =
   run: ->
     imageArray = @fisherYates(window.imageArray)
     @animate()
-    setInterval( => @animate() ), 2000
+    setInterval((=> @animate()), 2000)
   animate: ->
     if @roomToAnimate()
       @showImage(imageArray[@index])
