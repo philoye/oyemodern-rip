@@ -6,20 +6,19 @@ class App < Sinatra::Base
 
   configure do
     env = ENV["RACK_ENV"] || "development"
+    enable   :logging
+    enable   :raise_errors
+    enable   :show_exceptions if development?
+
+    set      :root, File.dirname(__FILE__)
+    set      :sass, { :load_paths => [ "#{App.root}/app/css" ] }
+    set      :haml, :format => :html5
+
+    register Sinatra::CompassSupport
+    register Sinatra::AssetPack
+    register Sinatra::Partial
+    enable :partial_underscores
   end
-
-  enable   :logging
-  enable   :raise_errors
-  enable   :show_exceptions if development?
-
-  set      :root, File.dirname(__FILE__)
-  set      :sass, { :load_paths => [ "#{App.root}/app/css" ] }
-  set      :haml, :format => :html5
-
-  register Sinatra::CompassSupport
-  register Sinatra::AssetPack
-  register Sinatra::Partial
-  enable :partial_underscores
 
   configure :development do |config|
     require "sinatra/reloader"
