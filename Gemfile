@@ -16,7 +16,15 @@ gem 'sinatra-assetpack', :require => 'sinatra/assetpack', :git => 'git://github.
 #gem 'sinatra-assetpack', :require => 'sinatra/assetpack', :path => '/Users/philoye/code/sinatra-assetpack', :branch => 'my_master'
 
 gem 'haml', '~> 3.2.beta'
-gem 'sass'
+gem 'sass'
 gem 'compass'
 gem 'coffee-script'
+
+group :development do
+  gem 'guard-livereload'
+  gem 'rack-livereload',  :require => 'rack-livereload'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-fsevent', :require => false
+end
 

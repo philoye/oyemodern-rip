@@ -16,5 +16,9 @@ if memcache_servers = ENV["MEMCACHE_SERVERS"]
     entitystore: "memcached://#{memcache_servers}"
 end
 
+if ENV['RACK_ENV'] == 'development'
+  use Rack::LiveReload
+end
+
 run App
 
