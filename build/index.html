@@ -8,9 +8,6 @@
 <meta content='width=device-width, initial-scale=1' name='viewport'>
 <meta content='A-8KjHhpXRbkbZF9t1YgaLyTjaJuvqe4EZhHxcLHeyU' name='google-site-verification'>
 <style>
-body {
-  background-color: red; }
-
 /*! normalize.css v1.0.1 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -655,13 +652,14 @@ ul.imagegrid {
     opacity: 0; } }
 
 </style>
-<!-- / :javascript -->
-<!-- /   window.imageArray = []; -->
-<!-- /   window.onload = function() { -->
-<!-- /     return setTimeout((function() { -->
-<!-- /       return document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " "); -->
-<!-- /     }), 500); -->
-<!-- /   }; -->
+<script>
+  window.imageArray = [];
+  window.onload = function() {
+   return setTimeout((function() {
+     return document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ");
+   }), 500);
+  };
+</script>
 </head>
 <body>
 <div class='spacer'></div>
@@ -689,7 +687,7 @@ Oye Modern
 <img src='images/acor-e-caviar-2.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/acor-e-caviar-2.jpg");
 </script>
 </li>
 
@@ -699,7 +697,7 @@ Oye Modern
 <img src='images/acor-e-caviar-2.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/acor-e-caviar-2.jpg");
 </script>
 </li>
 
@@ -709,7 +707,7 @@ Oye Modern
 <img src='images/acor-r-surface-2.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/acor-r-surface-2.jpg");
 </script>
 </li>
 
@@ -719,7 +717,7 @@ Oye Modern
 <img src='images/bamt-r-dr-group-31.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/bamt-r-dr-group-31.jpg");
 </script>
 </li>
 
@@ -729,7 +727,7 @@ Oye Modern
 <img src='images/dcsr-r-headphones-10.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/dcsr-r-headphones-10.jpg");
 </script>
 </li>
 
@@ -739,7 +737,7 @@ Oye Modern
 <img src='images/dcsr-r-turntable-11.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/dcsr-r-turntable-11.jpg");
 </script>
 </li>
 
@@ -749,7 +747,7 @@ Oye Modern
 <img src='images/fink-e-fold-r-1.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/fink-e-fold-r-1.jpg");
 </script>
 </li>
 
@@ -759,7 +757,7 @@ Oye Modern
 <img src='images/frut-r-gem-p-4.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/frut-r-gem-p-4.jpg");
 </script>
 </li>
 
@@ -769,7 +767,7 @@ Oye Modern
 <img src='images/joye-b-bike-014-f-k-5.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/joye-b-bike-014-f-k-5.jpg");
 </script>
 </li>
 
@@ -779,7 +777,7 @@ Oye Modern
 <img src='images/joye-b-bike-029-f-k-6.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/joye-b-bike-029-f-k-6.jpg");
 </script>
 </li>
 
@@ -789,7 +787,7 @@ Oye Modern
 <img src='images/joye-e-wire-curve-s-30.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/joye-e-wire-curve-s-30.jpg");
 </script>
 </li>
 
@@ -799,7 +797,7 @@ Oye Modern
 <img src='images/rsvn-b-264fb-3.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/rsvn-b-264fb-3.jpg");
 </script>
 </li>
 
@@ -809,7 +807,7 @@ Oye Modern
 <img src='images/rsvn-b-288fb-1.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/rsvn-b-288fb-1.jpg");
 </script>
 </li>
 
@@ -819,7 +817,7 @@ Oye Modern
 <img src='images/rsvn-b-aperture-s-8.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/rsvn-b-aperture-s-8.jpg");
 </script>
 </li>
 
@@ -829,7 +827,7 @@ Oye Modern
 <img src='images/tlil-r-crayon-19.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/tlil-r-crayon-19.jpg");
 </script>
 </li>
 
@@ -839,13 +837,207 @@ Oye Modern
 <img src='images/yoon-r-innermessage-love-3.jpg'>
 </noscript>
 <script>
-  imageArray.push(path);
+  imageArray.push("images/yoon-r-innermessage-love-3.jpg");
 </script>
 </li>
 
 </ul>
 </section>
-<!-- != js :application -->
+<script>
+(function() {
+  var animateProducts;
+
+  animateProducts = {
+    time: 2000,
+    photoHeight: 240,
+    pageGap: {
+      top: -160,
+      right: 0,
+      bottom: 0,
+      left: -160
+    },
+    imageGap: {
+      top: -200,
+      right: 400,
+      bottom: 400,
+      left: -400
+    },
+    $currentImage: null,
+    init: function() {
+      return this.run();
+    },
+    fisherYates: function(arr) {
+      var i, j, tempi, tempj;
+      i = arr.length;
+      if (i === 0) {
+        return false;
+      }
+      while (--i) {
+        j = Math.floor(Math.random() * (i + 1));
+        tempi = arr[i];
+        tempj = arr[j];
+        arr[i] = tempj;
+        arr[j] = tempi;
+      }
+      return arr;
+    },
+    roomToAnimate: function() {
+      var offset;
+      this.$page = $('.page');
+      offset = this.$page.offset();
+      this.spaceVertically = offset.top > 200;
+      this.spaceHorizontally = offset.left > 200;
+      return this.spaceVertically || this.spaceHorizontally;
+    },
+    showImage: function(imgPath) {
+      var $img, position;
+      position = this.randomXY();
+      $img = $('<img>').addClass('animated_image').attr('src', imgPath).css('top', position.y).css('left', position.x).appendTo('body').fadeTo(300, 1);
+      setTimeout((function(_this) {
+        return function() {
+          return _this.hideImage($img);
+        };
+      })(this), 3000);
+      return this.$currentImage = $img;
+    },
+    hideImage: function($img) {
+      return $img.fadeTo(900, 0, function() {
+        return $img.remove();
+      });
+    },
+    field: function() {
+      var x1, x2, y1, y2;
+      x1 = 0;
+      y1 = 0;
+      x2 = $(window).width() - this.photoHeight;
+      y2 = $(window).height() - this.photoHeight;
+      return {
+        x1: x1,
+        y1: y1,
+        x2: x2,
+        y2: y2
+      };
+    },
+    calcXYRange: function($target, gap) {
+      var objRangeX, objRangeY, objX1, objX2, objY1, objY2, px, targetOffset;
+      if (!$target) {
+        return [
+          {
+            x: 0,
+            y: 0
+          }
+        ];
+      }
+      targetOffset = $target.offset();
+      targetOffset.left = Math.floor(targetOffset.left);
+      targetOffset.top = Math.floor(targetOffset.top);
+      objX1 = targetOffset.left + gap.left;
+      objY1 = targetOffset.top + gap.top;
+      objX2 = targetOffset.left + $target.width() + gap.right;
+      objY2 = targetOffset.top + $target.height() + gap.bottom;
+      objRangeX = (function() {
+        var k, ref, ref1, results;
+        results = [];
+        for (px = k = ref = objX1, ref1 = objX2; ref <= ref1 ? k <= ref1 : k >= ref1; px = ref <= ref1 ? ++k : --k) {
+          results.push(px);
+        }
+        return results;
+      })();
+      objRangeY = (function() {
+        var k, ref, ref1, results;
+        results = [];
+        for (px = k = ref = objY1, ref1 = objY2; ref <= ref1 ? k <= ref1 : k >= ref1; px = ref <= ref1 ? ++k : --k) {
+          results.push(px);
+        }
+        return results;
+      })();
+      return {
+        x: objRangeX,
+        y: objRangeY
+      };
+    },
+    randomXY: function() {
+      var fieldRange, imgRange, pageRange, px, x, y;
+      fieldRange = {
+        x: (function() {
+          var k, ref, ref1, results;
+          results = [];
+          for (px = k = ref = this.field().x1, ref1 = this.field().x2; ref <= ref1 ? k <= ref1 : k >= ref1; px = ref <= ref1 ? ++k : --k) {
+            results.push(px);
+          }
+          return results;
+        }).call(this),
+        y: (function() {
+          var k, ref, ref1, results;
+          results = [];
+          for (px = k = ref = this.field().y1, ref1 = this.field().y2; ref <= ref1 ? k <= ref1 : k >= ref1; px = ref <= ref1 ? ++k : --k) {
+            results.push(px);
+          }
+          return results;
+        }).call(this)
+      };
+      pageRange = this.calcXYRange(this.$page, this.pageGap);
+      imgRange = this.calcXYRange(this.$currentImage, this.imageGap);
+      if (this.spaceVertically) {
+        x = fieldRange.x[Math.floor(Math.random() * fieldRange.x.length)];
+        if (_.indexOf(pageRange.x, x)) {
+          fieldRange.y = _.difference(fieldRange.y, pageRange.y);
+        }
+        if (_.indexOf(imgRange.x, x)) {
+          fieldRange.y = _.difference(fieldRange.y, imgRange.y);
+        }
+        y = fieldRange.y[Math.floor(Math.random() * fieldRange.y.length)];
+      } else {
+        y = fieldRange.x[Math.floor(Math.random() * fieldRange.y.length)];
+        if (_.indexOf(pageRange.y, y)) {
+          fieldRange.x = _.difference(fieldRange.x, pageRange.x);
+        }
+        if (_.indexOf(imgRange.y, y)) {
+          fieldRange.x = _.difference(fieldRange.x, imgRange.x);
+        }
+        x = fieldRange.x[Math.floor(Math.random() * fieldRange.x.length)];
+      }
+      return {
+        x: x,
+        y: y
+      };
+    },
+    randomBetween: function(floor, ceiling) {
+      return Math.floor(Math.random() * (ceiling - floor + 1) + floor);
+    },
+    index: 0,
+    run: function() {
+      var imageArray;
+      imageArray = this.fisherYates(window.imageArray);
+      this.animate();
+      return setInterval(((function(_this) {
+        return function() {
+          return _this.animate();
+        };
+      })(this)), 2000);
+    },
+    animate: function() {
+      if (this.roomToAnimate()) {
+        this.showImage(imageArray[this.index]);
+        return this.index = (this.index + 1) % imageArray.length;
+      }
+    }
+  };
+
+  $(window).load(function() {
+    $("ul.imagegrid img").each(function() {
+      var $img;
+      $img = $(this);
+      return $img.css('opacity', 0).attr('src', $img.attr("data-src")).removeAttr('data-src').fadeTo(500, 1);
+    });
+    if ($(window).width() >= 600) {
+      return animateProducts.init();
+    }
+  });
+
+}).call(this);
+
+</script>
 <!-- - if ENV['oyemodern_ga'] -->
 <!-- :javascript -->
 <!-- var _gaq=[['_setAccount',""],['_trackPageview']]; -->

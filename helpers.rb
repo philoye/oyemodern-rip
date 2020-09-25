@@ -4,6 +4,7 @@ Dotenv.load
 require 'haml'
 require 'base64'
 require 'sassc'
+require 'coffee-script'
 
 module Haml::Helpers
   def svg_use_tag(id, klass={})
@@ -34,6 +35,11 @@ module Haml::Helpers
   def inline_css(file)
     template = File.read("src/styles/#{file}.sass")
     SassC::Engine.new(template, :syntax => :sass).render
+  end
+  
+  def inline_coffee(file)
+    coffee = File.read("src/scripts/#{file}.coffee")
+    CoffeeScript.compile coffee
   end
 
 end

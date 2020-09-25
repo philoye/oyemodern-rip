@@ -16,14 +16,13 @@
     %style
       = inline_css :application
 
-    -# != js  :jsforhead
-    // :javascript
-    //   window.imageArray = [];
-    //   window.onload = function() {
-    //     return setTimeout((function() {
-    //       return document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ");
-    //     }), 500);
-    //   };
+    :javascript
+      window.imageArray = [];
+      window.onload = function() {
+       return setTimeout((function() {
+         return document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ");
+       }), 500);
+      };
 
   %body
     .spacer
@@ -60,7 +59,9 @@
         = render :lazyimage, filename: 'tlil-r-crayon-19.jpg'
         = render :lazyimage, filename: 'yoon-r-innermessage-love-3.jpg'
 
-    / != js :application
+    %script
+      = inline_coffee :application
+
     / - if ENV['oyemodern_ga']
     /   :javascript
     /     var _gaq=[['_setAccount',"#{ENV['OYEMODERN_GA']}"],['_trackPageview']];

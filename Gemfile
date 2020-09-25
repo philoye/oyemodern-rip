@@ -5,6 +5,7 @@ gem 'dotenv'
 gem 'haml'
 gem 'sassc'
 gem 'redcarpet'
+gem 'coffee-script'
 
 gem 'guard'
 gem 'guard-coffeescript'
