@@ -1,8 +1,0 @@
-%li
-  - path = img_asset_path("/images/#{filename}")
-  %img{ :'data-src' => path }
-  %noscript
-    %img{ :src => path }
-  :javascript
-    imageArray.push("#{path}");
-
