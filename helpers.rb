@@ -22,8 +22,12 @@ module Haml::Helpers
     haml_tag :img, src: "data:image/jpeg;base64,#{data}", alt: filename, class: classname, width: width, height: height
   end
 
-  def render(partial)
-    Haml::Engine.new(File.read("src/_#{partial}.haml")).render
+  def render(partial, locals = {})
+    Haml::Engine.new(File.read("src/_#{partial}.haml")).render(Object.new, locals)
+  end
+
+  def img_asset_path(filename)
+    return "images/#{filename}"
   end
 
 end

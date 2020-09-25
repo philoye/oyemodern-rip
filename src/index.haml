@@ -1,7 +1,69 @@
-!!!
-%html{ lang: 'en'}
+!!! 5
+
+-# <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+-# <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+-# <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+-# <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+%html.no-js.init{:lang => "en"}
   %head
-    = render :head
+    %meta{:charset => "utf-8"}
+    %meta{:'http-equiv' =>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}
+    %title= "Oye Modern has closed"
+    %meta{:name => "description", :content => ""}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+    %meta{:name => "google-site-verification", :content => "A-8KjHhpXRbkbZF9t1YgaLyTjaJuvqe4EZhHxcLHeyU" }
+
+    -# != css :application
+    -# != js  :jsforhead
+    // :javascript
+    //   window.imageArray = [];
+    //   window.onload = function() {
+    //     return setTimeout((function() {
+    //       return document.documentElement.className = document.documentElement.className.replace(/(\b|^)init\b/, " ");
+    //     }), 500);
+    //   };
 
   %body
-    Hello world
+    .spacer
+    .page
+      %header
+        Oye Modern
+
+      %section.greeting
+        .inner
+          %h1 Oye Modern has closed.
+          %p After five years, we have decided to close up shop. We’ve had fun, learned a lot, but it’s time to the turn the page.
+          %p We don’t know what’s next, but when we do, find out by following us on <a href="http://facebook.com/oyemodern">Facebook</a> and <a href="http://twitter.com/oyemodern">Twitter</a>.
+
+      %section.image
+        %img{ :src => img_asset_path('lottie.jpg') }
+
+    %section.products
+      %p A few of our favourite items that you may have missed…
+      %ul.imagegrid
+        = render :lazyimage, filename: 'acor-e-caviar-2.jpg'
+        = render :lazyimage, filename: 'acor-e-caviar-2.jpg'
+        = render :lazyimage, filename: 'acor-r-surface-2.jpg'
+        = render :lazyimage, filename: 'bamt-r-dr-group-31.jpg'
+        = render :lazyimage, filename: 'dcsr-r-headphones-10.jpg'
+        = render :lazyimage, filename: 'dcsr-r-turntable-11.jpg'
+        = render :lazyimage, filename: 'fink-e-fold-r-1.jpg'
+        = render :lazyimage, filename: 'frut-r-gem-p-4.jpg'
+        = render :lazyimage, filename: 'joye-b-bike-014-f-k-5.jpg'
+        = render :lazyimage, filename: 'joye-b-bike-029-f-k-6.jpg'
+        = render :lazyimage, filename: 'joye-e-wire-curve-s-30.jpg'
+        = render :lazyimage, filename: 'rsvn-b-264fb-3.jpg'
+        = render :lazyimage, filename: 'rsvn-b-288fb-1.jpg'
+        = render :lazyimage, filename: 'rsvn-b-aperture-s-8.jpg'
+        = render :lazyimage, filename: 'tlil-r-crayon-19.jpg'
+        = render :lazyimage, filename: 'yoon-r-innermessage-love-3.jpg'
+
+    / != js :application
+    / - if ENV['oyemodern_ga']
+    /   :javascript
+    /     var _gaq=[['_setAccount',"#{ENV['OYEMODERN_GA']}"],['_trackPageview']];
+    /     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    /     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    /       s.parentNode.insertBefore(g,s)}(document,'script'));
+    /
