@@ -53,17 +53,13 @@ section.image
     padding-top: pxtoem(150px, 16px)
     position: relative
     .inner
-      // +box-shadow(#888 0px 0px 5px)
+      box-shadow: 0 0 5px #888
       background-color: $beige
       border-top: 1px solid darken($beige, 5%)
   .products
     position: relative
     z-index: 3
     background-color: white
-
-
-//@media only screen and (min-width: 321px)
-
 
 
 // base styles for floating page
@@ -112,21 +108,21 @@ section.image
     overflow: hidden
 
   .page
-    // @include transition-property(opacity, top)
-    // @include transition-duration(0.2s, 0.1s)
-    // @include transition-timing-function(linear, linear)
+    transition-property: opacity, top
+    transition-duration: 0.2s, 0.1s
+    transition-timing-function: linear, linear
     top: 0
     border-bottom: 0
     margin: 0 auto
     width: pxtoem(480px, 16px)
-    // +border-radius(5px)
-    // +box-shadow(#888 0px 0px 7px)
+    border-radius: 5px
+    box-shadow: #888 0px 0px 7px
   .no-boxshadow
     border: 5px solid darken($beige, 4%)
 
   header
-    // +border-top-left-radius(5px)
-    // +border-bottom-left-radius(5px)
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
 
   .products
     display: none

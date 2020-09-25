@@ -527,6 +527,7 @@ section.image {
     padding-top: 9.375em;
     position: relative; }
     section.greeting .inner {
+      box-shadow: 0 0 5px #888;
       background-color: #fafaf6;
       border-top: 1px solid #f1f1e6; }
   .products {
@@ -570,12 +571,20 @@ section.image {
     margin-bottom: -12.5em;
     overflow: hidden; }
   .page {
+    transition-property: opacity, top;
+    transition-duration: 0.2s, 0.1s;
+    transition-timing-function: linear, linear;
     top: 0;
     border-bottom: 0;
     margin: 0 auto;
-    width: 30em; }
+    width: 30em;
+    border-radius: 5px;
+    box-shadow: #888 0px 0px 7px; }
   .no-boxshadow {
     border: 5px solid #f3f3e9; }
+  header {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
   .products {
     display: none; } }
 
@@ -610,10 +619,16 @@ section.image {
 .products p {
   padding: 2em 2em 0 2em; }
 
-ul.imagegrid li img {
-  display: inline;
-  width: 45%;
-  max-width: 100%; }
+ul.imagegrid {
+  list-style: none; }
+  ul.imagegrid li {
+    margin: 0;
+    padding: 0;
+    diaplay: inline; }
+    ul.imagegrid li img {
+      display: inline;
+      width: 45%;
+      max-width: 100%; }
 
 @media only screen and (min-width: 600px) {
   ul.imagegrid {
