@@ -3,6 +3,7 @@ Dotenv.load
 
 require 'haml'
 require 'base64'
+require 'sassc'
 
 module Haml::Helpers
   def svg_use_tag(id, klass={})
@@ -22,12 +23,17 @@ module Haml::Helpers
     haml_tag :img, src: "data:image/jpeg;base64,#{data}", alt: filename, class: classname, width: width, height: height
   end
 
+  def img_asset_path(filename)
+    return "images/#{filename}"
+  end
+
   def render(partial, locals = {})
     Haml::Engine.new(File.read("src/_#{partial}.haml")).render(Object.new, locals)
   end
 
-  def img_asset_path(filename)
-    return "images/#{filename}"
+  def inline_css(file)
+    template = File.read("src/styles/#{file}.sass")
+    SassC::Engine.new(template, :syntax => :sass).render
   end
 
 end
