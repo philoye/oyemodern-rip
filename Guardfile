@@ -13,11 +13,15 @@
 require './helpers'
 
 guard 'haml', input: 'src', output: 'build' do
-  watch(/^[^_].+(\.haml)/)
+  watch(/^[^_][a-z]+\.haml/)
 end
 
 watch(/_{1}.+(\.haml)/) do |f|
   `touch src/[^_]*.haml`
+end
+
+watch(/.+(.sass)/) do |f|
+  `touch src/*.haml`
 end
 
 guard :jammit, output_folder: 'build/scripts' do
@@ -25,8 +29,8 @@ guard :jammit, output_folder: 'build/scripts' do
 end
 
 coffeescript_options = {
-  input: 'src/scripts',
-  output: 'build/scripts',
+  input:    'src/scripts',
+  output:   'build/scripts',
   patterns: [%r{^src/scripts/(.+\.(?:coffee|coffee\.md|litcoffee))$}]
 }
 
