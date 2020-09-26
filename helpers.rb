@@ -42,5 +42,12 @@ module Haml::Helpers
     CoffeeScript.compile coffee
   end
 
+  def inline_js(filenames)
+    js = ""
+    filenames.each {|file| js << File.read(File.join("public/scripts/vendor/#{file}.js")) }
+    return js
+  end
+
+
 end
 

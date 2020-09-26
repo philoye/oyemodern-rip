@@ -15,7 +15,8 @@
     %meta{:name => "google-site-verification", :content => "A-8KjHhpXRbkbZF9t1YgaLyTjaJuvqe4EZhHxcLHeyU" }
     %style
       = inline_css :application
-
+    %script
+      = inline_js [ 'modernizr', 'respond' ]
     :javascript
       window.imageArray = [];
       window.onload = function() {
@@ -60,6 +61,7 @@
         = render :lazyimage, filename: 'yoon-r-innermessage-love-3.jpg'
 
     %script
+      = inline_js [ 'jquery', 'underscore', 'console' ]
       = inline_coffee :application
 
     / - if ENV['oyemodern_ga']
