@@ -62,9 +62,10 @@
 
     %script{ type: 'text/javascript', src: 'scripts/js_for_foot.js'}
     %script{ type: 'text/javascript', src: 'scripts/application.js'}
-    - if ENV['oyemodern_ga']
+    - if ENV['OYEMODERN_GA']
       :javascript
-        var _gaq=[['_setAccount',"#{ENV['OYEMODERN_GA']}"],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
+        if document.location.host === 'oyemodern.com'
+          var _gaq=[['_setAccount',"#{ENV['OYEMODERN_GA']}"],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
