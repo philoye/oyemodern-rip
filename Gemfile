@@ -12,4 +12,4 @@ gem 'guard-coffeescript'
 gem 'guard-sass'
 gem 'guard-haml'
 gem 'guard-copy'
-
+gem 'guard-jammit'

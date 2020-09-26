@@ -7,6 +7,7 @@ require 'sassc'
 require 'coffee-script'
 
 module Haml::Helpers
+  
   def svg_use_tag(id, klass={})
     haml_tag :svg, :class => klass do
       haml_tag :use, "xlink:href"=>id
@@ -47,7 +48,6 @@ module Haml::Helpers
     filenames.each {|file| js << File.read(File.join("public/scripts/vendor/#{file}.js")) }
     return js
   end
-
 
 end
 

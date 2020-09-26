@@ -20,5 +20,19 @@ watch(/_{1}.+(\.haml)/) do |f|
   `touch src/[^_]*.haml`
 end
 
-guard :copy, run_at_start: true, from: 'public', to: 'build' 
+guard :jammit, output_folder: 'build/scripts' do
+  watch(%r{^src/scripts/vendor/(.*)\.js$})
+end
+
+coffeescript_options = {
+  input: 'src/scripts',
+  output: 'build/scripts',
+  patterns: [%r{^src/scripts/(.+\.(?:coffee|coffee\.md|litcoffee))$}]
+}
+
+guard 'coffeescript', coffeescript_options do
+  coffeescript_options[:patterns].each { |pattern| watch(pattern) }
+end
+
+guard :copy, run_at_start: true, from: 'public', to: 'build'
 

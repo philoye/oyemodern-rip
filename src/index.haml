@@ -15,8 +15,8 @@
     %meta{:name => "google-site-verification", :content => "A-8KjHhpXRbkbZF9t1YgaLyTjaJuvqe4EZhHxcLHeyU" }
     %style
       = inline_css :application
-    %script
-      = inline_js [ 'modernizr', 'respond' ]
+    %script{ type: 'text/javascript', src: 'scripts/js_for_head.js'}
+
     :javascript
       window.imageArray = [];
       window.onload = function() {
@@ -60,14 +60,11 @@
         = render :lazyimage, filename: 'tlil-r-crayon-19.jpg'
         = render :lazyimage, filename: 'yoon-r-innermessage-love-3.jpg'
 
-    %script
-      = inline_js [ 'jquery', 'underscore', 'console' ]
-      = inline_coffee :application
-
+    %script{ type: 'text/javascript', src: 'scripts/js_for_foot.js'}
+    %script{ type: 'text/javascript', src: 'scripts/application.js'}
     - if ENV['oyemodern_ga']
       :javascript
         var _gaq=[['_setAccount',"#{ENV['OYEMODERN_GA']}"],['_trackPageview']];
         (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
           s.parentNode.insertBefore(g,s)}(document,'script'));
-

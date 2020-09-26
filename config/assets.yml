@@ -1,0 +1,11 @@
+embed_assets: on
+
+javascripts:
+  js_for_head:
+    - src/scripts/vendor/modernizr.js
+    - src/scripts/vendor/respond.js
+  js_for_foot:
+    - src/scripts/vendor/jquery.js
+    - src/scripts/vendor/underscore.js
+  
+    

@@ -6,6 +6,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    cssmin (1.0.3)
     dotenv (2.7.6)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -29,12 +30,20 @@ GEM
     guard-haml (1.1.2)
       guard (~> 2.0)
       haml (>= 3.0)
+    guard-jammit (1.1.0)
+      guard (~> 2.12)
+      guard-compat (~> 1.2)
+      jammit
     guard-sass (1.6.1)
       guard (>= 2.8.0)
       sass (>= 3.1)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
+    jammit (0.7.0)
+      cssmin (~> 1.0)
+      jsmin (~> 1.0)
+    jsmin (1.0.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -73,6 +82,7 @@ DEPENDENCIES
   guard-coffeescript
   guard-copy
   guard-haml
+  guard-jammit
   guard-sass
   haml
   redcarpet

@@ -1,21 +1,26 @@
 RewriteEngine on
 
 #forward .com.au/.co.nz to .com
-RewriteCond %{HTTP_HOST} ^philoye\.com\.au
-RewriteRule (.*) https://www.philoye.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^oyemodern\.com\.au
+RewriteRule (.*) https://www.oyemodern.com/$1 [R=301,L]
 
-RewriteCond %{HTTP_HOST} ^www\.philoye\.com\.au
-RewriteRule (.*) https://www.philoye.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.oyemodern\.com\.au
+RewriteRule (.*) https://www.oyemodern.com/$1 [R=301,L]
 
 # Forward www to no-www
-RewriteCond %{HTTP_HOST} ^www\.philoye\.com$ [NC]
-RewriteRule ^(.*)$ https://philoye.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.oyemodern\.com$ [NC]
+RewriteRule ^(.*)$ https://oyemodern.com/$1 [R=301,L]
 
 # Forward http to https
-RewriteCond %{HTTP_HOST} ^philoye\.com$ [NC]
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://philoye.com/$1 [R,L]
+#RewriteCond %{HTTP_HOST} ^oyemodern\.com$ [NC]
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://oyemodern.com/$1 [R,L]
 
 #Fix trailing slash problem
-RewriteRule ^([^\.]+[^/])$ https://philoye\.com/$1/ [R=301,L]
+RewriteRule ^([^\.]+[^/])$ https://oyemodern\.com/$1/ [R=301,L]
 
+# Redirect non-existing pages to homepage
+Options +SymLinksIfOwnerMatch 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . / [L]
