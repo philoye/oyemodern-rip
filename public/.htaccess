@@ -2,14 +2,14 @@ RewriteEngine on
 
 #forward .com.au/.co.nz to .com
 RewriteCond %{HTTP_HOST} ^oyemodern\.com\.au
-RewriteRule (.*) https://www.oyemodern.com/$1 [R=301,L]
+RewriteRule (.*) http://oyemodern.com/$1 [R=301,L]
 
 RewriteCond %{HTTP_HOST} ^www\.oyemodern\.com\.au
-RewriteRule (.*) https://www.oyemodern.com/$1 [R=301,L]
+RewriteRule (.*) http://oyemodern.com/$1 [R=301,L]
 
 # Forward www to no-www
 RewriteCond %{HTTP_HOST} ^www\.oyemodern\.com$ [NC]
-RewriteRule ^(.*)$ https://oyemodern.com/$1 [R=301,L]
+RewriteRule ^(.*)$ http://oyemodern.com/$1 [R=301,L]
 
 # Forward http to https
 #RewriteCond %{HTTP_HOST} ^oyemodern\.com$ [NC]
@@ -17,7 +17,7 @@ RewriteRule ^(.*)$ https://oyemodern.com/$1 [R=301,L]
 #RewriteRule ^(.*)$ https://oyemodern.com/$1 [R,L]
 
 #Fix trailing slash problem
-RewriteRule ^([^\.]+[^/])$ https://oyemodern\.com/$1/ [R=301,L]
+RewriteRule ^([^\.]+[^/])$ http://oyemodern\.com/$1/ [R=301,L]
 
 # Redirect non-existing pages to homepage
 Options +SymLinksIfOwnerMatch 
