@@ -13,7 +13,7 @@
 require './helpers'
 
 guard 'haml', input: 'src', output: 'build' do
-  watch(/^[^_][a-z]+\.haml/)
+  watch(/^[^_].+\.haml/)
 end
 
 watch(/_{1}.+(\.haml)/) do |f|
@@ -21,7 +21,7 @@ watch(/_{1}.+(\.haml)/) do |f|
 end
 
 watch(/.+(.sass)/) do |f|
-  `touch src/*.haml`
+  `touch src/[^_]*.haml`
 end
 
 guard :jammit, output_folder: 'build/scripts' do
